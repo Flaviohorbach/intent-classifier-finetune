@@ -29,6 +29,7 @@ Runs on a free Colab T4 GPU in about 20 minutes. **Runtime → Change runtime ty
 
 code("""
 !pip install -q -U peft  # Colab ships an older peft that does not match its newer transformers
+!pip uninstall -q -y torchao  # unused here; new peft refuses the old version Colab ships
 !git clone -q https://github.com/Flaviohorbach/intent-classifier-finetune.git repo
 import json, time, torch, transformers, peft
 print("torch", torch.__version__, "| transformers", transformers.__version__, "| peft", peft.__version__)
