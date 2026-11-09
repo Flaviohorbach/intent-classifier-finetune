@@ -18,7 +18,10 @@ def code(text):
 md("""
 # Fine-tuning Qwen2.5-1.5B with LoRA to classify customer messages
 
-Runs on a free Colab T4 GPU in about 20 minutes. **Runtime → Change runtime type → T4 GPU**, then **Runtime → Run all**.
+Runs on a free T4 GPU in about 20 minutes, on Colab or Kaggle.
+
+- **Colab:** Runtime → Change runtime type → T4 GPU, then Runtime → Run all.
+- **Kaggle:** in the notebook's settings panel, Accelerator → GPU T4 x2 and Internet → on (needs a verified phone), then Run all. The result is saved in the Output panel.
 
 1. Load the data from the project's GitHub repository.
 2. Measure the model **before** fine-tuning, on the hand-written test set.
@@ -28,9 +31,11 @@ Runs on a free Colab T4 GPU in about 20 minutes. **Runtime → Change runtime ty
 """)
 
 code("""
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Kaggle gives two T4s; one is enough and avoids multi-GPU surprises
 !pip install -q -U peft  # Colab ships an older peft that does not match its newer transformers
 !pip uninstall -q -y torchao  # unused here; new peft refuses the old version Colab ships
-!git clone -q https://github.com/Flaviohorbach/intent-classifier-finetune.git repo
+!rm -rf repo && git clone -q https://github.com/Flaviohorbach/intent-classifier-finetune.git repo
 import json, time, torch, transformers, peft
 print("torch", torch.__version__, "| transformers", transformers.__version__, "| peft", peft.__version__)
 print("GPU:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "none: switch the runtime to T4 GPU")
@@ -185,20 +190,28 @@ result = {
     "after": {"latencyMs": round(after_ms), "predictions": [{"text": r["text"], "label": r["label"], "predicted": p} for r, p in zip(test, after)]},
 }
 json.dump(result, open("lora-predictions.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-from google.colab import files
-files.download("lora-predictions.json")
+try:
+    from google.colab import files  # Colab: the browser downloads it
+    files.download("lora-predictions.json")
+except ImportError:  # Kaggle: it appears in the Output panel
+    print("saved to", os.path.abspath("lora-predictions.json"))
 """)
 
 md("""
 ## 5. Optional: publish the adapter to Hugging Face
 
-Add a Hugging Face token with **write** access in Colab's **Secrets** panel (key icon on the left) as `HF_TOKEN`, allow this notebook to read it, and run the cell. Only the LoRA adapter is uploaded (tens of MB), not the base model.
+Add a Hugging Face token with **write** access as a secret named `HF_TOKEN` (Colab: key icon on the left; Kaggle: Add-ons → Secrets), allow this notebook to read it, and run the cell. Only the LoRA adapter is uploaded (tens of MB), not the base model.
 """)
 
 code("""
-from google.colab import userdata
 from huggingface_hub import login
-login(userdata.get("HF_TOKEN"))
+try:
+    from google.colab import userdata
+    token = userdata.get("HF_TOKEN")
+except ImportError:
+    from kaggle_secrets import UserSecretsClient
+    token = UserSecretsClient().get_secret("HF_TOKEN")
+login(token)
 REPO = "intent-classifier-qwen2.5-1.5b-lora"
 model.push_to_hub(REPO, private=False)
 tok.push_to_hub(REPO, private=False)
