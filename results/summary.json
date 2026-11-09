@@ -570,6 +570,107 @@
      }
     ]
    }
+  },
+  {
+   "id": "gemini",
+   "name": "gemini-3.6-flash, prompt only",
+   "how": "labeling guide in the prompt, 10 messages per call",
+   "runsOn": "Google's API",
+   "latencyMs": 963,
+   "scores": {
+    "n": 120,
+    "accuracy": 0.983,
+    "macroF1": 0.983,
+    "invalid": 0,
+    "perLabel": {
+     "troca": {
+      "precision": 0.96,
+      "recall": 1,
+      "f1": 0.98,
+      "support": 24
+     },
+     "atraso": {
+      "precision": 1,
+      "recall": 0.958,
+      "f1": 0.979,
+      "support": 24
+     },
+     "duvida": {
+      "precision": 0.963,
+      "recall": 1,
+      "f1": 0.981,
+      "support": 26
+     },
+     "reclamacao_grave": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "support": 24
+     },
+     "outro": {
+      "precision": 1,
+      "recall": 0.955,
+      "f1": 0.977,
+      "support": 22
+     }
+    },
+    "confusion": {
+     "troca": {
+      "troca": 24,
+      "atraso": 0,
+      "duvida": 0,
+      "reclamacao_grave": 0,
+      "outro": 0,
+      "invalido": 0
+     },
+     "atraso": {
+      "troca": 1,
+      "atraso": 23,
+      "duvida": 0,
+      "reclamacao_grave": 0,
+      "outro": 0,
+      "invalido": 0
+     },
+     "duvida": {
+      "troca": 0,
+      "atraso": 0,
+      "duvida": 26,
+      "reclamacao_grave": 0,
+      "outro": 0,
+      "invalido": 0
+     },
+     "reclamacao_grave": {
+      "troca": 0,
+      "atraso": 0,
+      "duvida": 0,
+      "reclamacao_grave": 24,
+      "outro": 0,
+      "invalido": 0
+     },
+     "outro": {
+      "troca": 0,
+      "atraso": 0,
+      "duvida": 1,
+      "reclamacao_grave": 0,
+      "outro": 21,
+      "invalido": 0
+     }
+    },
+    "errors": [
+     {
+      "text": "Recebi só metade do pedido, a outra caixa não veio e o rastreio parou.",
+      "label": "atraso",
+      "predicted": "troca",
+      "ms": 2950
+     },
+     {
+      "text": "Ganhei um sorteio de vocês no Instagram, como recebo o prêmio?",
+      "label": "outro",
+      "predicted": "duvida",
+      "ms": 773
+     }
+    ]
+   }
   }
  ]
 }
