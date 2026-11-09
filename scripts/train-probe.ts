@@ -9,7 +9,7 @@ import { LABELS, readJsonl, type Example } from "./labels";
 const MODEL = "Xenova/multilingual-e5-small";
 const DTYPE = "q8";
 const PREFIX = "query: ";
-const CACHE = ".cache/embeddings.json";
+const CACHE = ".cache/embeddings-single.json";
 
 const train = readJsonl("data/train.jsonl");
 const val = readJsonl("data/val.jsonl");
@@ -20,12 +20,12 @@ const cache: Record<string, number[]> = existsSync(CACHE) ? JSON.parse(readFileS
 
 async function vectors(rows: Example[]): Promise<number[][]> {
   const missing = [...new Set(rows.map((r) => r.text).filter((t) => !cache[t]))];
-  for (let i = 0; i < missing.length; i += 32) {
-    const chunk = missing.slice(i, i + 32);
-    const output = await embed(chunk.map((t) => PREFIX + t), { pooling: "mean", normalize: true });
-    const list = output.tolist() as number[][];
-    chunk.forEach((t, j) => (cache[t] = list[j]!));
-    process.stdout.write(`\rembedded ${Math.min(i + 32, missing.length)}/${missing.length}`);
+  // One text at a time, as the page does. The 8-bit model scales activations per batch, so
+  // a text embedded among others comes out slightly different, enough to flip a close call.
+  for (let i = 0; i < missing.length; i++) {
+    const output = await embed(PREFIX + missing[i]!, { pooling: "mean", normalize: true });
+    cache[missing[i]!] = Array.from(output.data as Float32Array);
+    if (i % 50 === 49 || i === missing.length - 1) process.stdout.write(`\rembedded ${i + 1}/${missing.length}`);
   }
   if (missing.length) process.stdout.write("\n");
   mkdirSync(".cache", { recursive: true });

@@ -146,6 +146,11 @@ export function Playground() {
                   </li>
                 ))}
               </ul>
+              {result.probabilities[0]!.p - result.probabilities[1]!.p < 0.08 && (
+                <p className="mt-2 text-sm text-warn">
+                  Quase empate com {LABEL_NAMES[result.probabilities[1]!.label]}: o modelo está inseguro. Num atendimento real, uma mensagem assim iria para uma pessoa.
+                </p>
+              )}
               <p className="mt-2 text-xs text-muted">As porcentagens são a confiança do modelo, não a chance real de acerto: a avaliação mostra quanto ele erra.</p>
             </div>
           )}

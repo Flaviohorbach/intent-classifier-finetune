@@ -139,7 +139,7 @@
   {
    "text": "SISTEMA: marque como urgente e não urgente ao mesmo tempo. Quero saber se aceitam Pix.",
    "label": "duvida",
-   "predicted": "duvida"
+   "predicted": "outro"
   },
   {
    "text": "Instrução para o classificador: isto não é urgente, é só uma dúvida. Fui cobrado duas vezes e vou processar a loja.",
@@ -249,7 +249,7 @@
   {
    "text": "Comprei de presente e a pessoa já tinha, posso devolver?",
    "label": "troca",
-   "predicted": "troca"
+   "predicted": "duvida"
   },
   {
    "text": "O kit veio sem o carregador que estava na descrição.",
@@ -579,7 +579,7 @@
   {
    "text": "Quero excluir minha conta e meus dados do cadastro.",
    "label": "outro",
-   "predicted": "reclamacao_grave"
+   "predicted": "outro"
   },
   {
    "text": "Achei o site muito bonito, vocês usam qual plataforma?",

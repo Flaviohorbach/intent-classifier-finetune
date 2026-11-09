@@ -59,27 +59,29 @@ interface Row {
 const rows: Row[] = [
   {
     id: "keywords",
-    name: "Keywords (project 9)",
-    how: "regular expressions, no training",
-    runsOn: "anywhere",
+    name: "Palavras-chave (módulo 9)",
+    how: "expressões regulares, sem treino",
+    runsOn: "em qualquer lugar",
     latencyMs: 0,
     predictions: test.map((t) => ({ text: t.text, label: t.label, predicted: classifyWithKeywords(t.text) })),
   },
 ];
 
 const probe = load<{ model: string; latencyMs?: number; predictions: Prediction[] }>("results/probe-predictions.json");
-if (probe) rows.push({ id: "probe", name: "e5-small + trained layer", how: probe.model, runsOn: "the visitor's browser", latencyMs: probe.latencyMs ?? null, predictions: probe.predictions });
+// Browser latency is measured on the page (see README), not in Node.
+const browser = load<{ medianMs: number; device: string }>("results/browser-latency.json");
+if (probe) rows.push({ id: "probe", name: "e5-small + camada treinada", how: "embeddings prontos e congelados + camada linear treinada", runsOn: "no navegador do visitante", latencyMs: browser?.medianMs ?? null, predictions: probe.predictions });
 
 const lora = load<{ model: string; gpu: string; trainMinutes: number; before: { latencyMs: number; predictions: Prediction[] }; after: { latencyMs: number; predictions: Prediction[] } }>("results/lora-predictions.json");
 if (lora) {
-  rows.push({ id: "qwen", name: "Qwen2.5-1.5B, prompt only", how: "no training", runsOn: `GPU (${lora.gpu})`, latencyMs: lora.before.latencyMs, predictions: lora.before.predictions });
-  rows.push({ id: "qwen-lora", name: "Qwen2.5-1.5B + LoRA", how: `fine-tuned in ${lora.trainMinutes} min`, runsOn: `GPU (${lora.gpu})`, latencyMs: lora.after.latencyMs, predictions: lora.after.predictions });
+  rows.push({ id: "qwen", name: "Qwen2.5-1.5B, só prompt", how: "sem treino", runsOn: `GPU (${lora.gpu})`, latencyMs: lora.before.latencyMs, predictions: lora.before.predictions });
+  rows.push({ id: "qwen-lora", name: "Qwen2.5-1.5B + LoRA", how: `ajustado em ${lora.trainMinutes} min`, runsOn: `GPU (${lora.gpu})`, latencyMs: lora.after.latencyMs, predictions: lora.after.predictions });
 }
 
 const gemini = load<{ model: string; batch: number; predictions: (Prediction & { ms: number })[] }>(GEMINI_FILE);
 if (gemini && gemini.predictions.length === test.length) {
   const ms = gemini.predictions.map((p) => p.ms).sort((a, b) => a - b);
-  rows.push({ id: "gemini", name: `${gemini.model}, prompt only`, how: `labeling guide in the prompt, ${gemini.batch} messages per call`, runsOn: "Google's API", latencyMs: ms[Math.floor(ms.length / 2)]!, predictions: gemini.predictions });
+  rows.push({ id: "gemini", name: `${gemini.model}, só prompt`, how: `guia de rótulos no prompt, ${gemini.batch} mensagens por chamada`, runsOn: "API do Google", latencyMs: ms[Math.floor(ms.length / 2)]!, predictions: gemini.predictions });
 }
 
 const summary = rows.map(({ predictions, ...row }) => ({ ...row, scores: score(predictions) }));
