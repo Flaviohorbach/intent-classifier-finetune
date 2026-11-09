@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Same palette as the other projects of the track. Every color is a token, redefined for dark mode. */
+:root {
+  --bg: #f2f4f1;
+  --surface: #ffffff;
+  --surface-2: #e8ece7;
+  --ink: #1a201d;
+  --muted: #5c6862;
+  --line: #d6ddd7;
+  --accent: #1f5f4a;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcebe4;
+  --danger: #a3302a;
+  --ok: #1f6b45;
+  --warn: #8a5a00;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111513;
+    --surface: #1a201d;
+    --surface-2: #232a26;
+    --ink: #e6ece8;
+    --muted: #98a59e;
+    --line: #2e3732;
+    --accent: #7fc8a9;
+    --accent-ink: #0d1411;
+    --accent-soft: #1f3a2f;
+    --danger: #f08a82;
+    --ok: #7fd1a4;
+    --warn: #f2c46b;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
