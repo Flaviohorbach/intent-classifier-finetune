@@ -30,7 +30,7 @@ Veja `scripts/metrics.ts`:
 | **Ajuste fino (LoRA)** | Ajusta uma parte pequena dos pesos com exemplos | Precisa de GPU para treinar e para rodar | Muitos exemplos, tarefa estável, custo ou privacidade importam |
 | **Camada sobre embeddings** | Só a última camada aprende; o resto fica congelado | Quase zero: roda no navegador | Classificação simples, precisa ser barato, rápido e privado |
 
-**O que o projeto mostrou:** com 5 rótulos e um bom guia, o Gemini só com prompt acertou 98,3%, bem acima do modelo do navegador (82,5%). Ajustar um modelo pequeno não serve para ganhar do grande em qualidade, e sim para custar menos, responder mais rápido ou não mandar dados para fora.
+**O que o projeto mostrou:** o Qwen de 1,5B só com prompt acertou 42,5% e nem seguia o formato. Depois de 7 minutos de LoRA, foi a 95,0%, perto do Gemini (98,3%). O modelo do navegador ficou em 82,5%. Ajustar um modelo pequeno não costuma ganhar do grande em qualidade, mas chega perto, e ganha em custo, velocidade e privacidade.
 
 ## 4. LoRA em uma frase
 

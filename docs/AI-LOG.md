@@ -8,7 +8,11 @@ Training embedded messages in batches of 32; the page embeds one at a time. The 
 
 ### 2. A notebook written for a machine it could not test on
 
-The Colab notebook failed three times in a row on the user's runs: a renamed argument (`torch_dtype` → `dtype`) in some versions, Colab's old `peft` refusing its newer `transformers`, and the new `peft` refusing Colab's old `torchao`. Each fix came from the error the user pasted. **Caught by:** the user running it. **Fix:** version-aware loading, upgrading only `peft`, and removing the unused `torchao`. A notebook pinned to tested versions would have avoided the round trips, at the cost of fighting Colab's own preinstalled packages.
+The notebook failed seven times across the user's runs before it finished: a renamed argument (`torch_dtype` → `dtype`), Colab's old `peft` refusing its newer `transformers`, the new `peft` refusing an old `torchao`, `warmup_ratio` removed in transformers 5, a batch of 16 that ran out of the T4's 15 GB, and, on Kaggle, two cells that assumed `import google.colab` fails outside Colab (Kaggle ships that package). Each fix came from the error the user pasted. **Caught by:** the user running it. **Fix:** version-independent code, batches of 4 with gradient accumulation, and checking an environment variable instead of an import. A notebook pinned to tested versions, and a dry run on a tiny model on CPU, would have caught most of these before the user spent GPU time on them.
+
+### 2b. Memory that stayed taken after a failure
+
+After the first out-of-memory error, a smaller batch failed again with 13.8 GB already in use. The failed run's traceback kept its GPU tensors alive, so freeing memory inside the session did not help. **Caught by:** the second error asking for only 198 MB. **Fix:** restarting the session. The agent should have said so on the first error instead of offering an in-place retry.
 
 ### 3. An upgrade that may have broken the GPU
 
