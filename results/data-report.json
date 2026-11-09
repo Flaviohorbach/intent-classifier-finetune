@@ -1,0 +1,44 @@
+{
+ "generated": 2000,
+ "duplicates": 0,
+ "tooCloseToTest": 4,
+ "train": {
+  "total": 1798,
+  "troca": 360,
+  "atraso": 360,
+  "duvida": 360,
+  "reclamacao_grave": 360,
+  "outro": 358
+ },
+ "val": {
+  "total": 198,
+  "troca": 40,
+  "atraso": 40,
+  "duvida": 39,
+  "reclamacao_grave": 40,
+  "outro": 39
+ },
+ "averageWords": 20.1,
+ "closestLeaks": [
+  {
+   "train": "bom dia",
+   "test": "Bom dia",
+   "score": 1
+  },
+  {
+   "train": "oi",
+   "test": "oi",
+   "score": 1
+  },
+  {
+   "train": "asdfghjk",
+   "test": "asdfghjkl",
+   "score": 0.7
+  },
+  {
+   "train": "esse modelo de fone tem cancelamento de ruid ativo?",
+   "test": "Esse fone tem cancelamento de ruído?",
+   "score": 0.67
+  }
+ ]
+}
