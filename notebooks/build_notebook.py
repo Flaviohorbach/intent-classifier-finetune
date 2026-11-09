@@ -28,7 +28,7 @@ Runs on a free Colab T4 GPU in about 20 minutes. **Runtime → Change runtime ty
 """)
 
 code("""
-!pip install -q -U peft accelerate
+!pip install -q peft accelerate
 !git clone -q https://github.com/Flaviohorbach/intent-classifier-finetune.git repo
 import json, time, torch, transformers, peft
 print("torch", torch.__version__, "| transformers", transformers.__version__, "| peft", peft.__version__)
