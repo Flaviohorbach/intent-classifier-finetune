@@ -157,9 +157,13 @@ val_set = [encode(r) for r in val]
 code("""
 from transformers import Trainer, TrainingArguments
 
+import math
+EPOCHS, BATCH = 2, 16
+# 5% warm-up, in steps: transformers 5 removed `warmup_ratio`, and steps work in every version.
+warmup = math.ceil(0.05 * EPOCHS * math.ceil(len(train_set) / BATCH))
 args = TrainingArguments(
-    output_dir="out", num_train_epochs=2, per_device_train_batch_size=16, per_device_eval_batch_size=16,
-    learning_rate=2e-4, lr_scheduler_type="cosine", warmup_ratio=0.05, fp16=True,
+    output_dir="out", num_train_epochs=EPOCHS, per_device_train_batch_size=BATCH, per_device_eval_batch_size=BATCH,
+    learning_rate=2e-4, lr_scheduler_type="cosine", warmup_steps=warmup, fp16=True,
     logging_steps=20, eval_strategy="epoch", save_strategy="no", report_to="none", remove_unused_columns=False,
 )
 trainer = Trainer(model=model, args=args, train_dataset=train_set, eval_dataset=val_set, data_collator=collate)
