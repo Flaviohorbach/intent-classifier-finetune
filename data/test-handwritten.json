@@ -1,0 +1,362 @@
+[
+ {
+  "label": "duvida",
+  "text": "Boa noite, o frete pra Manaus é grátis acima de quanto?"
+ },
+ {
+  "label": "duvida",
+  "text": "vcs entregam no sábado?"
+ },
+ {
+  "label": "duvida",
+  "text": "Posso retirar na loja física em vez de receber em casa?"
+ },
+ {
+  "label": "duvida",
+  "text": "Esse notebook vem com Windows instalado ou preciso comprar a licença?"
+ },
+ {
+  "label": "duvida",
+  "text": "Qual a voltagem da air fryer de 4 litros?"
+ },
+ {
+  "label": "duvida",
+  "text": "Tem nota fiscal em nome de empresa? Preciso do CNPJ na nota."
+ },
+ {
+  "label": "duvida",
+  "text": "O cupom PRIMEIRA10 vale pra produto em promoção?"
+ },
+ {
+  "label": "duvida",
+  "text": "Consigo mudar o endereço de entrega de um pedido que fiz hoje cedo?"
+ },
+ {
+  "label": "duvida",
+  "text": "Olá! Gostaria de saber se o tênis de corrida tem forma pequena ou normal."
+ },
+ {
+  "label": "duvida",
+  "text": "aceita cartão de débito?"
+ },
+ {
+  "label": "duvida",
+  "text": "Quanto tempo de garantia tem o liquidificador?"
+ },
+ {
+  "label": "duvida",
+  "text": "Vocês mandam pra Portugal?"
+ },
+ {
+  "label": "duvida",
+  "text": "Se eu comprar dois, o frete fica mais barato?"
+ },
+ {
+  "label": "duvida",
+  "text": "Bom dia, o pagamento por Pix tem desconto?"
+ },
+ {
+  "label": "duvida",
+  "text": "Como funciona o programa de pontos de vocês?"
+ },
+ {
+  "label": "duvida",
+  "text": "A cor 'areia' é mais pro bege ou pro cinza? Na foto não dá pra ver direito 🤔"
+ },
+ {
+  "label": "troca",
+  "text": "A calça ficou apertada, queria trocar por um tamanho maior."
+ },
+ {
+  "label": "troca",
+  "text": "Chegou só um pé do sapato na caixa 😅"
+ },
+ {
+  "label": "troca",
+  "text": "o fone só funciona de um lado, ja testei em dois celulares"
+ },
+ {
+  "label": "troca",
+  "text": "Comprei de presente e a pessoa já tinha, posso devolver?"
+ },
+ {
+  "label": "troca",
+  "text": "O kit veio sem o carregador que estava na descrição."
+ },
+ {
+  "label": "troca",
+  "text": "Recebi o modelo 128GB mas paguei pelo de 256GB."
+ },
+ {
+  "label": "troca",
+  "text": "A cor é bem diferente da foto do site, quero devolver."
+ },
+ {
+  "label": "troca",
+  "text": "Prezados, solicito a devolução do pedido 48213 conforme o direito de arrependimento de 7 dias."
+ },
+ {
+  "label": "troca",
+  "text": "a panela descascou na primeira semana de uso"
+ },
+ {
+  "label": "troca",
+  "text": "Veio a capinha de outro modelo de celular, não serve no meu."
+ },
+ {
+  "label": "troca",
+  "text": "Quero desistir da compra, o produto ainda está lacrado."
+ },
+ {
+  "label": "troca",
+  "text": "O vestido veio com um rasgo na costura lateral."
+ },
+ {
+  "label": "troca",
+  "text": "tem como trocar o relógio preto pelo prata? não gostei da cor"
+ },
+ {
+  "label": "troca",
+  "text": "A cadeira veio com um parafuso faltando e não dá pra montar."
+ },
+ {
+  "label": "troca",
+  "text": "O perfume veio vazado, a caixa toda molhada."
+ },
+ {
+  "label": "troca",
+  "text": "Pedi 3 camisetas e chegaram 2."
+ },
+ {
+  "label": "troca",
+  "text": "Comprei errado, era pra ser o modelo infantil. Dá pra trocar?"
+ },
+ {
+  "label": "atraso",
+  "text": "O rastreio diz 'objeto em trânsito' há 12 dias."
+ },
+ {
+  "label": "atraso",
+  "text": "Meu pedido não chegou e o prazo venceu anteontem"
+ },
+ {
+  "label": "atraso",
+  "text": "ja passou uma semana do prazo e nada do meu pedido"
+ },
+ {
+  "label": "atraso",
+  "text": "O pedido 77120 aparece como entregue, mas eu não recebi nada."
+ },
+ {
+  "label": "atraso",
+  "text": "Comprei na Black Friday e até agora não foi nem enviado."
+ },
+ {
+  "label": "atraso",
+  "text": "Oi, o pedido ainda está 'aguardando envio' faz 6 dias, é normal?"
+ },
+ {
+  "label": "atraso",
+  "text": "A transportadora disse que tentou entregar mas eu estava em casa o dia todo."
+ },
+ {
+  "label": "atraso",
+  "text": "Previsão era dia 3, hoje é dia 10. Alguma novidade?"
+ },
+ {
+  "label": "atraso",
+  "text": "O código de rastreio não funciona no site dos Correios, e o pedido não chega."
+ },
+ {
+  "label": "atraso",
+  "text": "precisava do presente pro aniversário que foi ontem, não chegou a tempo 😞"
+ },
+ {
+  "label": "atraso",
+  "text": "Meu pedido voltou para o remetente sem ninguém me avisar. E agora?"
+ },
+ {
+  "label": "atraso",
+  "text": "Cadê a minha encomenda? Já fiz o pedido faz 15 dias."
+ },
+ {
+  "label": "atraso",
+  "text": "Pedido parado no centro de distribuição de Cajamar desde segunda."
+ },
+ {
+  "label": "atraso",
+  "text": "Recebi só metade do pedido, a outra caixa não veio e o rastreio parou."
+ },
+ {
+  "label": "atraso",
+  "text": "boa tarde! poderiam verificar o pedido 55031? o prazo era ontem"
+ },
+ {
+  "label": "atraso",
+  "text": "Fiz a compra e o status não muda de 'pagamento aprovado' há uma semana."
+ },
+ {
+  "label": "atraso",
+  "text": "O entregador marcou 'destinatário ausente' e não deixou aviso nenhum."
+ },
+ {
+  "label": "atraso",
+  "text": "Até quando vou ter que esperar? Comprei mês passado."
+ },
+ {
+  "label": "atraso",
+  "text": "Nossa, mais lento que tartaruga hein. 20 dias e nada."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Cancelei a compra há 30 dias e o estorno nunca caiu. Vou acionar o banco e o Procon."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Meu cartão foi usado em duas compras que eu não fiz no site de vocês!"
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "O carregador que vocês venderam esquentou e queimou a tomada. Podia ter pegado fogo na minha casa."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Já liguei 5 vezes, ninguém resolve. Vou expor vocês nas redes sociais."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Paguei o boleto e o pedido foi cancelado, mas o dinheiro não voltou. Isso é roubo."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Meu filho se cortou com a borda do brinquedo, ela veio afiada. Absurdo vender isso pra criança."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "vou entrar no juizado especial, já juntei todos os prints"
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Vocês cobraram R$ 899 e o produto custava R$ 499. Quero meu dinheiro AGORA."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Alguém da equipe de vocês me ligou pedindo código do cartão. Vocês vazaram meus dados?"
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Estou há 2 meses sem produto e sem dinheiro. Vou registrar no consumidor.gov."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "o suplemento me deu reação, fui parar no pronto socorro"
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Recebi uma cobrança de assinatura mensal que eu nunca contratei."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Que palhaçada é essa? Terceira vez que o pedido é cancelado sem explicação e o valor fica preso no cartão."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Comprei um celular novo e veio usado, com a conta de outra pessoa logada. Isso é crime."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Meu nome foi pra negativação por uma dívida com vocês que eu já paguei."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "Sou idosa e o atendente foi grosseiro e desligou na minha cara. Quero falar com um responsável."
+ },
+ {
+  "label": "reclamacao_grave",
+  "text": "O pacote chegou aberto e o celular foi trocado por um tijolo. Quero providência imediata."
+ },
+ {
+  "label": "outro",
+  "text": "Vocês estão contratando? Tenho experiência em estoque."
+ },
+ {
+  "label": "outro",
+  "text": "Bom dia"
+ },
+ {
+  "label": "outro",
+  "text": "Amei o atendimento da Juliana, super atenciosa! ❤️"
+ },
+ {
+  "label": "outro",
+  "text": "Sou influenciadora e gostaria de propor uma parceria."
+ },
+ {
+  "label": "outro",
+  "text": "Quero parar de receber os e-mails de promoção."
+ },
+ {
+  "label": "outro",
+  "text": "teste"
+ },
+ {
+  "label": "outro",
+  "text": "Vendo seguidores reais, chama no direct"
+ },
+ {
+  "label": "outro",
+  "text": "Obrigado, deu tudo certo!"
+ },
+ {
+  "label": "outro",
+  "text": "?"
+ },
+ {
+  "label": "duvida",
+  "text": "Que horas abre a loja do shopping?"
+ },
+ {
+  "label": "outro",
+  "text": "Vocês podiam vender roupa plus size também, fica a sugestão."
+ },
+ {
+  "label": "outro",
+  "text": "Mensagem enviada por engano, desculpa"
+ },
+ {
+  "label": "outro",
+  "text": "Sou fornecedor de embalagens, com quem posso falar sobre orçamento?"
+ },
+ {
+  "label": "outro",
+  "text": "kkkkkkk"
+ },
+ {
+  "label": "outro",
+  "text": "Parabéns pelo aniversário da loja! 🎉"
+ },
+ {
+  "label": "duvida",
+  "text": "Hello, do you sell gift cards?"
+ },
+ {
+  "label": "outro",
+  "text": "Quero excluir minha conta e meus dados do cadastro."
+ },
+ {
+  "label": "outro",
+  "text": "Achei o site muito bonito, vocês usam qual plataforma?"
+ },
+ {
+  "label": "outro",
+  "text": "boa tarde tudo bem?"
+ },
+ {
+  "label": "outro",
+  "text": "Ganhei um sorteio de vocês no Instagram, como recebo o prêmio?"
+ },
+ {
+  "label": "outro",
+  "text": "asdfghjkl"
+ }
+]
