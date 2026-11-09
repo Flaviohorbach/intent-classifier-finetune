@@ -28,7 +28,7 @@ Runs on a free Colab T4 GPU in about 20 minutes. **Runtime → Change runtime ty
 """)
 
 code("""
-!pip install -q peft
+!pip install -q -U peft accelerate
 !git clone -q https://github.com/Flaviohorbach/intent-classifier-finetune.git repo
 import json, time, torch, transformers, peft
 print("torch", torch.__version__, "| transformers", transformers.__version__, "| peft", peft.__version__)
@@ -58,7 +58,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 tok = AutoTokenizer.from_pretrained(MODEL)
 tok.padding_side = "left"  # generation pads on the left
-model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.float16, device_map="cuda")
+# Newer transformers call it `dtype`; older ones, `torch_dtype`.
+from packaging.version import Version
+dtype_arg = "dtype" if Version(transformers.__version__) >= Version("4.56") else "torch_dtype"
+model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="cuda", **{dtype_arg: torch.float16})
 
 def prompt(text):
     return (
