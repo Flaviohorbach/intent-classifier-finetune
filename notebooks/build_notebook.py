@@ -197,11 +197,13 @@ result = {
     "after": {"latencyMs": round(after_ms), "predictions": [{"text": r["text"], "label": r["label"], "predicted": p} for r, p in zip(test, after)]},
 }
 json.dump(result, open("lora-predictions.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-try:
+print("saved to", os.path.abspath("lora-predictions.json"))
+# Kaggle also has the google.colab package, so check the environment, not the import.
+if "COLAB_RELEASE_TAG" in os.environ:
     from google.colab import files  # Colab: the browser downloads it
     files.download("lora-predictions.json")
-except ImportError:  # Kaggle: it appears in the Output panel
-    print("saved to", os.path.abspath("lora-predictions.json"))
+else:
+    print("Download it from the Output panel (Kaggle: /kaggle/working).")
 """)
 
 md("""
@@ -212,10 +214,10 @@ Add a Hugging Face token with **write** access as a secret named `HF_TOKEN` (Col
 
 code("""
 from huggingface_hub import login
-try:
+if "COLAB_RELEASE_TAG" in os.environ:
     from google.colab import userdata
     token = userdata.get("HF_TOKEN")
-except ImportError:
+else:
     from kaggle_secrets import UserSecretsClient
     token = UserSecretsClient().get_secret("HF_TOKEN")
 login(token)
